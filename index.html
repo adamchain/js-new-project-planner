@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Components</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        textarea {
+            margin-top: 1px;
+            width: 743px;
+            height: 30px;
+            background-color: #fbfcbc;
+            color: black;
+            border: 0.5px solid rgb(194, 194, 194);
+            border-radius: 5px;
+            margin-bottom: 4px;
+        }
+
+
+        #side-panel {
+            width: 250px;
+            height: 100vh;
+            background-color: #f4f4f4;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        #side-panel h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category h3 {
+            font-size: 16px;
+            margin: 12px 0;
+            color: #000000;
+        }
+
+        .button-list {
+            display: flex;
+            width: 80%;
+            margin: 5px 0;
+            padding: 4px;
+            padding-left: 10px;
+            background-color: #2c2c2c;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 4px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 13px;
+            border: 0.5px solid rgb(194, 194, 194);
+        }
+
+        .button-list:hover {
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            font-size: 15px;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="side-panel">
+        <h2>JS Project Planner</h2>
+        <p>Click any component to add it to your page. <strong>Basic syntax included.</strong></p>
+
+        <!--main button list-->
+        <div id="component-list">
+
+            <h2>Variables</h2>
+            <button class="button-list" onclick="addComponent(this)" value="let varName = X;">let</button>
+            <button class="button-list" onclick="addComponent(this)" value="const varName = x;">const</button>
+
+            <h2>Functions</h2>
+            <button class="button-list" onclick="addComponent(this)" value="function myFunction() {};">function</button>
+            <button class="button-list" onclick="addComponent(this)" value="const myFunction = () => {};">arrow
+                function</button>
+            <button class="button-list" onclick="addComponent(this)" value="const myFunction = function() {}; ">function
+                expression</button>
+
+            <h2>Control Flow</h2>
+            <button class="button-list" onclick="addComponent(this)" value="if (condition) {}">if statement</button>
+            <button class="button-list" onclick="addComponent(this)" value="else {}">else statement</button>
+            <button class="button-list" onclick="addComponent(this)" value="else if (condition) {}">else if
+                statement</button>
+            <button class="button-list" onclick="addComponent(this)" value="for (let i = 0; i < 10; i++) {}">for
+                loop</button>
+            <button class="button-list" onclick="addComponent(this)" value="while (condition) {}">while loop</button>
+            <button class="button-list" onclick="addComponent(this)" value="do {} while (condition);">do while
+                loop</button>
+
+            <h2>Array Methods</h2>
+            <button class="button-list" onclick="addComponent(this)" value="array.forEach(item => {});">forEach</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.map(item => {});">map</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.filter(item => {});">filter</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="array.reduce((acc, item) => acc + item, 0);">reduce</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="array.find(item => item === condition);">find</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="array.findIndex(item => item === condition);">findIndex</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.includes(value);">includes</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.indexOf(value);">indexOf</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.push(value);">push</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.pop();">pop</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.shift();">shift</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.unshift(value);">unshift</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="array.splice(startIndex, deleteCount);">splice</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="array.slice(startIndex, endIndex);">slice</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.sort((a, b) => a - b);">sort</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.reverse();">reverse</button>
+            <button class="button-list" onclick="addComponent(this)" value="array1.concat(array2);">concat</button>
+            <button class="button-list" onclick="addComponent(this)" value="array.join(',');">join</button>
+
+            <h2>String Methods</h2>
+            <button class="button-list" onclick="addComponent(this)" value="string.split(',');">split</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="string.replace('old', 'new');">replace</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="string.substring(start, end);">substring</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="string.substr(start, length);">substr</button>
+            <button class="button-list" onclick="addComponent(this)" value="string.toUpperCase();">toUpperCase</button>
+            <button class="button-list" onclick="addComponent(this)" value="string.toLowerCase();">toLowerCase</button>
+            <button class="button-list" onclick="addComponent(this)" value="string.trim();">trim</button>
+            <button class="button-list" onclick="addComponent(this)" value="string.charAt(index);">charAt</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="string.includes('substring');">includes</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="string.startsWith('substring');">startsWith</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="string.endsWith('substring');">endsWith</button>
+
+            <h2>Math & Date Methods</h2>
+            <button class="button-list" onclick="addComponent(this)" value="Math.random();">Math.random</button>
+            <button class="button-list" onclick="addComponent(this)" value="Math.floor(number);">Math.floor</button>
+            <button class="button-list" onclick="addComponent(this)" value="Math.ceil(number);">Math.ceil</button>
+            <button class="button-list" onclick="addComponent(this)" value="Math.round(number);">Math.round</button>
+            <button class="button-list" onclick="addComponent(this)" value="Math.max(a, b);">Math.max</button>
+            <button class="button-list" onclick="addComponent(this)" value="Math.min(a, b);">Math.min</button>
+            <button class="button-list" onclick="addComponent(this)" value="Math.abs(number);">Math.abs</button>
+            <button class="button-list" onclick="addComponent(this)" value="Math.pow(base, exponent);">Math.pow</button>
+            <button class="button-list" onclick="addComponent(this)" value="Math.sqrt(number);">Math.sqrt</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="const currentDate = new Date();">Date</button>
+            <button class="button-list" onclick="addComponent(this)" value="date.getDate();">getDate</button>
+            <button class="button-list" onclick="addComponent(this)" value="date.getMonth();">getMonth</button>
+            <button class="button-list" onclick="addComponent(this)" value="date.getFullYear();">getFullYear</button>
+            <button class="button-list" onclick="addComponent(this)" value="date.getDay();">getDay</button>
+            <button class="button-list" onclick="addComponent(this)" value="date.getHours();">getHours</button>
+            <button class="button-list" onclick="addComponent(this)" value="date.getMinutes();">getMinutes</button>
+            <button class="button-list" onclick="addComponent(this)" value="date.getSeconds();">getSeconds</button>
+
+            <h2>Async & Timers</h2>
+            <button class="button-list" onclick="addComponent(this)"
+                value="setTimeout(() => {}, 1000);">setTimeout</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="setInterval(() => {}, 1000);">setInterval</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="const myPromise = new Promise((resolve, reject) => {});">Promise</button>
+            <button class="button-list" onclick="addComponent(this)" value="async function myAsyncFunction() {}">async
+                function</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="fetch('https://api.example.com')">fetch</button>
+
+            <h2>JSON & Storage</h2>
+            <button class="button-list" onclick="addComponent(this)" value="JSON.parse(jsonString);">JSON.parse</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="JSON.stringify(object);">JSON.stringify</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="localStorage.setItem('key', 'value');">localStorage.setItem</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="localStorage.getItem('key');">localStorage.getItem</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="localStorage.removeItem('key');">localStorage.removeItem</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="sessionStorage.setItem('key', 'value');">sessionStorage.setItem</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="sessionStorage.getItem('key');">sessionStorage.getItem</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="sessionStorage.removeItem('key');">sessionStorage.removeItem</button>
+
+            <h2>Destructuring & Spread</h2>
+            <button class="button-list" onclick="addComponent(this)" value="const { x, y } = obj;">object
+                destructuring</button>
+            <button class="button-list" onclick="addComponent(this)" value="const [a, b] = array;">array
+                destructuring</button>
+            <button class="button-list" onclick="addComponent(this)" value="const newObj = { ...obj };">spread operator
+                (object)</button>
+            <button class="button-list" onclick="addComponent(this)" value="const newArr = [...arr];">spread operator
+                (array)</button>
+
+            <h2>Event Handling</h2>
+            <button class="button-list" onclick="addComponent(this)"
+                value="element.addEventListener('click', () => {});">addEventListener</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="element.removeEventListener('click', () => {});">removeEventListener</button>
+
+            <h2>Modules</h2>
+            <button class="button-list" onclick="addComponent(this)"
+                value="import { myFunction } from './myModule.js';">import</button>
+            <button class="button-list" onclick="addComponent(this)"
+                value="export const myFunction = () => {};">export</button>
+
+
+        </div>
+    </div>
+    <div id="element-to-print">
+        <div id="content">
+
+            <h1 style="padding: 0%; margin: 0%;">My Project Plan</h1>
+            <h6 style="padding: 0%; margin: 0%; font-weight: 200;" id="dateStamp"></h6>
+            <button
+                style="background-color: #263deb; color: white; border: 0.5px solid blue; border-radius: 5px; padding: 4px; margin-bottom: 10px; margin-top: 10px;"
+                id="createPDF" onclick="pdf()">📄 Export as PDF</button><span style="margin-left: 5px;"
+                id="reset"></span>
+            <br>
+            <button style="border: 0.5px solid blue;border-radius: 5px; padding: 4px; margin-bottom: 5px;"
+                onclick="saveToLocalStorage()">💾 Save to
+                localStorage</button>
+            <button style="border: 0.5px solid blue; border-radius: 5px; padding: 4px; margin-bottom: 5px;"
+                onclick="loadFromLocalStorage()">🗄 Load
+                from localStorage</button>
+            <p id="reset"></p>
+        </div>
+
+
+
+        <!--after selected, add new component to page-->
+        <script>
+            function getFormattedDate() {
+                const now = new Date();
+                return now.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                });
+            }
+            // Set the timestamp inside the element
+            document.getElementById('dateStamp').innerText = "Initialized: " + getFormattedDate();
+        </script>
+        <script>
+
+            function addComponent(button) {
+                const component = button.textContent;  // Get the text content of the clicked button
+                const syntax = button.value;  // Get the value of the button (if any)
+
+                const newDiv = document.createElement('div');  // Create a new div element
+                const newInput = document.createElement('textarea');  // Create a new input element
+                const lineBreak = document.createElement('br');  // Create a new <br> element
+
+                // Set text content for the div (syntax and component text)
+                newDiv.innerHTML =
+                    `
+            <div style="height: 20px;display: flex; border-top: 1px solid gray; padding: 1px; margin-top: 1px;">
+            <div style="color: #2c2c2c; width: 92%; margin-left: 3px;">
+            <span style="font-weight: bold;"">${component}</span> // ${syntax}
+            </div>
+            
+            <div width:"10%">
+            <p style="color: red; font-size: 14px; cursor: pointer; margin-top: 0px;" onclick="deleteDiv(this)">&#10005; Delete</p>
+            </div>
+            </div>
+            
+            `;  // Add 10 spaces between syntax and component
+                // newDiv.style.marginBottom = '2px';
+                // Append the line break before the input field
+                // newDiv.appendChild(lineBreak);
+
+                // Append the input field to the div
+                newDiv.appendChild(newInput);
+
+                // Append the new div to the content area
+                document.getElementById('content').appendChild(newDiv);
+
+                const reset = document.getElementById('reset')
+                setTimeout(() => {
+                    reset.innerHTML = `<a style="color:red" href="">Reset Page</a>`;
+                }, 5000);
+
+            }
+        </script>
+    </div>
+    <script src="component-list.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        function pdf() {
+            const element = document.getElementById('element-to-print');
+            const opt = {
+                margin: 0, // Adjust the margin as needed
+                filename: 'outline.pdf',
+                html2canvas: { scale: 2 }, // High-resolution rendering
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' } // PDF settings
+            };
+
+            // Use the new Promise-based usage of html2pdf
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+
+    <!--save to local storage-->
+    <script>
+        function saveToLocalStorage() {
+            const content = document.getElementById('content').innerHTML; // Get the content of the page
+            localStorage.setItem('pageContent', content); // Save it to localStorage
+            alert("Page content saved to localStorage!");
+        }
+    </script>
+
+    <!--load from local storage-->
+    <script>
+        function loadFromLocalStorage() {
+            const savedContent = localStorage.getItem('pageContent');
+            if (savedContent) {
+                document.getElementById('content').innerHTML = savedContent; // Restore the saved content
+            }
+        }
+    </script>
+
+    <!-- delete selected div-->
+    <script>
+        function deleteDiv(button) {
+            const divToDelete = button.closest('div').parentElement.parentElement; // Correctly navigate to the outer div
+            divToDelete.remove(); // Remove the entire div containing the textarea
+        }
+
+    </script>
+
+
+</body>
+
+</html>
